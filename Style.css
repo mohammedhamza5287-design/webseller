@@ -1,0 +1,45 @@
+body{
+  margin:0;
+  padding:20px;
+  font-family:sans-serif;
+  text-align:center;
+  color:white;
+
+  background:
+    radial-gradient(circle at top right,
+    rgba(162,89,255,.35),
+    transparent 30%),
+
+    radial-gradient(circle at bottom left,
+    rgba(128,0,255,.25),
+    transparent 30%),
+
+    linear-gradient(180deg,#090909,#14081f,#090909);
+}
+
+.whatsapp{
+  display:inline-block;
+  margin:20px 0;
+  background:#25D366;
+  color:white;
+  text-decoration:none;
+  padding:12px 20px;
+  border-radius:12px;
+  font-size:18px;
+}
+.card{
+  background:rgba(255,255,255,.05);
+  margin:18px 0;
+  padding:20px;
+  border-radius:18px;
+
+  box-shadow:
+    0 0 15px rgba(162,89,255,.18);
+
+  backdrop-filter:blur(6px);
+}
+h1{
+  font-size:34px;
+  text-shadow:
+    0 0 10px rgba(162,89,255,.7);
+}
