@@ -6,17 +6,38 @@ body{
   color:white;
 
   background:
-    radial-gradient(circle at top right,
-    rgba(162,89,255,.35),
+    radial-gradient(circle at center,
+    rgba(0,120,255,.22),
+    transparent 35%),
+
+    radial-gradient(circle at bottom,
+    rgba(0,180,255,.12),
     transparent 30%),
 
-    radial-gradient(circle at bottom left,
-    rgba(128,0,255,.25),
-    transparent 30%),
-
-    linear-gradient(180deg,#090909,#14081f,#090909);
+    linear-gradient(
+      90deg,
+      #000000 0%,
+      #050b12 25%,
+      #071824 50%,
+      #050b12 75%,
+      #000000 100%
+    );
 }
 
+/* title */
+h1{
+  font-size:34px;
+  margin-top:10px;
+  text-shadow:
+    0 0 12px rgba(0,170,255,.45);
+}
+
+h2{
+  margin-top:35px;
+  font-size:26px;
+}
+
+/* whatsapp */
 .whatsapp{
   display:inline-block;
   margin:20px 0;
@@ -27,19 +48,32 @@ body{
   border-radius:12px;
   font-size:18px;
 }
+
+/* cards */
 .card{
-  background:rgba(255,255,255,.05);
+  background:rgba(255,255,255,.04);
   margin:18px 0;
   padding:20px;
   border-radius:18px;
 
   box-shadow:
-    0 0 15px rgba(162,89,255,.18);
+    0 0 14px rgba(0,140,255,.15);
 
   backdrop-filter:blur(6px);
 }
-h1{
-  font-size:34px;
-  text-shadow:
-    0 0 10px rgba(162,89,255,.7);
+
+/* demo buttons */
+.demo{
+  display:inline-block;
+  margin-top:12px;
+  background:#008cff;
+  color:white;
+  text-decoration:none;
+  padding:10px 18px;
+  border-radius:12px;
+  font-weight:bold;
+}
+
+p{
+  line-height:1.6;
 }
