@@ -1,80 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>WEBSELLER</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEBSELLER | SaaS Web Studio</title>
 
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <h1>WEBSELLER</h1>
+<!-- NAV -->
+<header class="nav">
+  <div class="logo">WEBSELLER</div>
 
-  <!-- WhatsApp Button -->
-  <a class="whatsapp" id="whatsappBtn" target="_blank">
-    Contact on WhatsApp
-  </a>
+  <nav>
+    <a href="#features">Features</a>
+    <a href="#work">Work</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <h2>My Demo Websites</h2>
+  <a class="nav-btn" href="#contact">Start Project</a>
+</header>
 
-  <div class="card">
-    <h3>Clothing Store Website</h3>
-    <p>Simple stylish online clothing shop page.</p>
-    <a class="demo" href="https://codepen.io/gsuqrlhd-the-solid/pen/NPbaeJO">
-      View Demo
-    </a>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Build High-Converting Websites for Your Business</h1>
+    <p>We design modern SaaS-style websites that help brands get customers, leads, and sales.</p>
+
+    <div class="hero-buttons">
+      <a href="#contact" class="btn">Get Started</a>
+      <a href="#work" class="btn-outline">View Work</a>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Barber Shop Website</h3>
-    <p>Booking and services page.</p>
-    <a class="demo" href="https://codepen.io/gsuqrlhd-the-solid/pen/pvNWGjM">
-      View Demo
-    </a>
+  <div class="hero-card">
+    <h3>🚀 Fast Delivery</h3>
+    <p>Professional websites in days, not weeks.</p>
+
+    <h3>📱 Mobile First</h3>
+    <p>Perfect on all devices.</p>
+
+    <h3>⚡ SEO Ready</h3>
+    <p>Rank better on Google.</p>
   </div>
+</section>
 
-  <div class="card">
-    <h3>Restaurant Menu Website</h3>
-    <p>Food menu with WhatsApp ordering.</p>
-    <a class="demo" href="https://codepen.io/gsuqrlhd-the-solid/pen/YPprBGe">
-      View Demo
-    </a>
+<!-- FEATURES -->
+<section id="features">
+  <h2>What You Get</h2>
+
+  <div class="grid">
+    <div class="card">Modern UI Design</div>
+    <div class="card">Responsive Layout</div>
+    <div class="card">SEO Optimization</div>
+    <div class="card">Fast Loading Speed</div>
   </div>
+</section>
 
-  <h2>Why choose WEBSELLER?</h2>
-  <p>Modern design • Mobile friendly • Fast delivery</p>
+<!-- WORK -->
+<section id="work">
+  <h2>Our Work</h2>
 
-  <!-- 🔥 NEW CLIENT SYSTEM -->
-  <h2>Get Your Website</h2>
+  <div class="grid">
+    <div class="card">Clothing Store UI</div>
+    <div class="card">Barber Booking Site</div>
+    <div class="card">Restaurant Menu</div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <h2>Pricing Plans</h2>
+
+  <div class="grid">
+
+    <div class="card">
+      <h3>Starter</h3>
+      <p class="price">₹999</p>
+      <p>Landing page website</p>
+    </div>
+
+    <div class="card popular">
+      <div class="badge">Popular</div>
+      <h3>Pro</h3>
+      <p class="price">₹2999</p>
+      <p>Business website (5 pages)</p>
+    </div>
+
+    <div class="card">
+      <h3>Premium</h3>
+      <p class="price">₹4999+</p>
+      <p>Full custom SaaS website</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Start Your Project</h2>
 
   <form id="contactForm">
     <input type="text" id="name" placeholder="Your Name" required>
-    <input type="text" id="project" placeholder="What website do you need?" required>
-    <input type="text" id="budget" placeholder="Your Budget (optional)">
-    <button type="submit">Send Request</button>
+    <input type="text" id="project" placeholder="Project Idea" required>
+    <input type="text" id="budget" placeholder="Budget (optional)">
+    <button type="submit">Send via WhatsApp</button>
   </form>
 
-  <!-- SCRIPT (IMPORTANT) -->
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e){
-      e.preventDefault();
+  <a class="whatsapp" id="whatsappBtn" target="_blank">
+    Chat on WhatsApp
+  </a>
+</section>
 
-      let name = document.getElementById("name").value;
-      let project = document.getElementById("project").value;
-      let budget = document.getElementById("budget").value;
+<footer>
+  © 2026 WEBSELLER — SaaS Web Studio
+</footer>
 
-      let message = `Hi, I am ${name}. I want a website: ${project}. Budget: ${budget}`;
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e){
+  e.preventDefault();
 
-      let url = "https://wa.me/916309455978?text=" + encodeURIComponent(message);
+  let name = document.getElementById("name").value;
+  let project = document.getElementById("project").value;
+  let budget = document.getElementById("budget").value;
 
-      window.open(url, "_blank");
-    });
+  let msg = `Hi, I'm ${name}. I need a website: ${project}. Budget: ${budget}`;
 
-    // Default WhatsApp button
-    document.getElementById("whatsappBtn").href =
-      "https://wa.me/916309455978?text=" +
-      encodeURIComponent("Hi WEBSELLER, I want a website for my business.");
-  </script>
+  window.open(
+    "https://wa.me/916309455978?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
+});
+
+document.getElementById("whatsappBtn").href =
+  "https://wa.me/916309455978?text=" +
+  encodeURIComponent("Hi WEBSELLER, I want a SaaS-style website.");
+</script>
 
 </body>
-</html>
+        </html>
