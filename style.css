@@ -77,3 +77,60 @@ h2{
 p{
   line-height:1.6;
 }
+body{
+  font-family: Arial;
+  background:#111;
+  color:white;
+  padding:20px;
+}
+
+/* LOGO + TITLE */
+.logo-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+/* FLAME */
+.flame{
+  width:34px;
+  height:48px;
+  position:relative;
+  animation: float 2s ease-in-out infinite;
+}
+
+/* blue sides */
+.flame::before{
+  content:"";
+  position:absolute;
+  width:34px;
+  height:48px;
+  background:linear-gradient(#00bfff,#0066ff);
+  border-radius:50% 50% 50% 50%;
+  clip-path:polygon(50% 0%, 100% 50%, 75% 100%, 50% 80%, 25% 100%, 0% 50%);
+  box-shadow:0 0 18px #00bfff;
+}
+
+/* black middle */
+.flame::after{
+  content:"";
+  position:absolute;
+  width:16px;
+  height:28px;
+  left:9px;
+  top:10px;
+  background:black;
+  border-radius:50%;
+}
+
+/* animation */
+@keyframes float{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-4px);}
+  100%{transform:translateY(0);}
+}
+
+h1{
+  color:#00bfff;
+  font-size:34px;
+}
