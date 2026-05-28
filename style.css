@@ -1,3 +1,139 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  background: radial-gradient(circle at top, #0f172a, #050814 60%, #02040a);
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 10%;
+  position: sticky;
+  top: 0;
+  background: rgba(5,8,20,0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.logo {
+  font-weight: 700;
+  color: #22c55e;
+}
+
+.nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #ccc;
+}
+
+.nav-btn {
+  background: #22c55e;
+  color: black;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* HERO */
+.hero {
+  padding: 120px 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 54px;
+  line-height: 1.1;
+}
+
+.hero p {
+  color: #9ca3af;
+  margin-top: 10px;
+}
+
+.hero-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+}
+
+/* BUTTONS */
+.btn, button {
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  margin-right: 10px;
+}
+
+.btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: black;
+}
+
+.btn-outline {
+  border: 1px solid #22c55e;
+  color: #22c55e;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+}
+
+/* SECTIONS */
+section {
+  padding: 90px 10%;
+}
+
+h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* CARDS */
+.card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 25px;
+  border-radius: 16px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: #22c55e;
+}
+
+/* PRICING */
+.price {
+  color: #22c55e;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.popular {
+  border: 2px solid #22c55e;
+  position: relative;
+}
+
 .badge {
   position: absolute;
   top: -10px;
@@ -6,7 +142,7 @@
   color: black;
   padding: 4px 8px;
   font-size: 11px;
-  border-radius: 5px;
+  border-radius: 6px;
 }
 
 /* FORM */
@@ -25,12 +161,6 @@ input {
   color: white;
 }
 
-button {
-  background: #22c55e;
-  border: none;
-}
-
-/* WHATSAPP */
 .whatsapp {
   display: inline-block;
   margin-top: 15px;
@@ -48,4 +178,4 @@ footer {
   padding: 20px;
   border-top: 1px solid #1f2937;
   color: #6b7280;
-}
+  }
