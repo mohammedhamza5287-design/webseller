@@ -77,3 +77,47 @@ h2{
 p{
   line-height:1.6;
 }
+.whatsapp {
+  display: inline-block;
+  background: #22c55e;
+  color: black;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.card {
+  background: #111;
+  color: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.demo {
+  display: inline-block;
+  margin-top: 10px;
+  color: #22c55e;
+  text-decoration: none;
+}
+
+form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 300px;
+}
+
+input {
+  padding: 10px;
+}
+
+button {
+  padding: 10px;
+  background: #22c55e;
+  border: none;
+  font-weight: bold;
+}
