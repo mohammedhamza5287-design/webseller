@@ -24,17 +24,25 @@ body{
     );
 }
 
-/* title */
-h1{
-  font-size:34px;
-  margin-top:10px;
-  text-shadow:
-    0 0 12px rgba(0,170,255,.45);
+.hero {
+  padding: 120px 10%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  gap: 40px;
 }
 
-h2{
-  margin-top:35px;
-  font-size:26px;
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.2;
+  max-width: 600px;
+}
+
+.hero p {
+  color: #9ca3af;
+  font-size: 18px;
+  max-width: 500px;
 }
 
 /* whatsapp */
@@ -204,30 +212,24 @@ section {
   text-align: center;
 }
 
-h2 {
-  margin-bottom: 25px;
-}
-
-/* GRID */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-  max-width: 1000px;
-  margin: auto;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+
 }
 
-/* CARDS */
 .card {
   background: #111827;
-  padding: 25px;
-  border-radius: 12px;
+  padding: 30px;
+  border-radius: 16px;
   border: 1px solid #1f2937;
   transition: 0.3s;
+  text-align: left;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
   border-color: #22c55e;
 }
 
@@ -301,4 +303,23 @@ footer {
   padding: 20px;
   border-top: 1px solid #1f2937;
   color: #6b7280;
+}
+section {
+  padding: 80px 10%;
+  text-align: left;
+}
+h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background: #22c55e;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
 }
