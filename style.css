@@ -314,16 +314,5 @@ section {
 }
 h2 {
   font-size: 34px;
-  margin-bottom: 30px;
-  position: relative;
-}
-
-h2::after {
-  content: "";
-  width: 70px;
-  height: 3px;
-  background: #22c55e;
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-}
+  margin-bottom
+  
