@@ -28,7 +28,6 @@ body {
   text-decoration: none;
   color: #ccc;
 }
-
 .nav-btn {
   background: #22c55e;
   color: black;
@@ -36,7 +35,6 @@ body {
   border-radius: 8px;
   font-weight: bold;
 }
-
 /* HERO */
 .hero {
   padding: 120px 10%;
@@ -93,7 +91,8 @@ body {
 
 /* SECTIONS */
 section {
-  padding: 90px 10%;
+  padding: 60px 10%;
+  }
 }
 
 h2 {
