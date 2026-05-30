@@ -177,4 +177,55 @@ footer {
   padding: 20px;
   border-top: 1px solid #1f2937;
   color: #6b7280;
+}
+/* HAMBURGER */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
   }
+
+  .nav {
+    padding: 15px 20px;
+  }
+
+  .nav nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: rgba(5,8,20,0.97);
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    gap: 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav nav.show {
+    display: flex;
+  }
+
+  .nav-btn {
+    display: none;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: left;
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 40px;
+  }
+}
