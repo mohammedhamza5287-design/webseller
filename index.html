@@ -1,31 +1,571 @@
-</footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(e){
-  e.preventDefault();
+  <title>WEBSELLER | SaaS Web Studio</title>
 
-  let name = document.getElementById("name").value;
-  let project = document.getElementById("project").value;
-  let budget = document.getElementById("budget").value;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  let msg = `Hi, I'm ${name}. I need a website: ${project}. Budget: ${budget}`;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-  window.open(
-    "https://wa.me/916309455978?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
-});
+    body {
+      font-family: "Poppins", sans-serif;
+      background: #0b0d12;
+      color: #ffffff;
+      line-height: 1.6;
+    }
 
-document.getElementById("whatsappBtn").href =
-  "https://wa.me/916309455978?text=" +
-  encodeURIComponent("Hi WEBSELLER, I want a SaaS-style website.");
-</script>
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* NAV */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 8%;
+      background: rgba(11, 13, 18, 0.95);
+      border-bottom: 1px solid #20242d;
+      backdrop-filter: blur(10px);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #c9ccd3;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    .nav-btn {
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #000000;
+      font-weight: 600;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 90vh;
+      padding: 100px 8%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 50px;
+    }
+
+    .hero-text {
+      max-width: 650px;
+    }
+
+    .hero h1 {
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 1.1;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      color: #aeb3bd;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 24px;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #000000;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 1px solid #3a3f4a;
+    }
+
+    .hero-card {
+      width: 330px;
+      padding: 30px;
+      border: 1px solid #292e38;
+      border-radius: 18px;
+      background: #11141b;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .hero-card p {
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 90px 8%;
+    }
+
+    section h2 {
+      font-size: 38px;
+      margin-bottom: 35px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 25px;
+      background: #11141b;
+      border: 1px solid #292e38;
+      border-radius: 14px;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #555c68;
+    }
+
+    /* PRICING */
+    .price {
+      font-size: 30px;
+      font-weight: 700;
+      margin: 10px 0;
+    }
+
+    .popular {
+      border: 1px solid #ffffff;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 5px 10px;
+      border-radius: 20px;
+      background: #ffffff;
+      color: #000000;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    /* CONTACT */
+    #contact {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid #303641;
+      background: #11141b;
+      color: #ffffff;
+      font-family: inherit;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #ffffff;
+    }
+
+    button {
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      background: #ffffff;
+      color: #000000;
+      font-family: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 13px 20px;
+      border-radius: 8px;
+      border: 1px solid #303641;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #20242d;
+      color: #888e99;
+    }
+
+    /* MOBILE */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 5%;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        padding: 25px;
+        background: #0b0d12;
+        border-bottom: 1px solid #20242d;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 5%;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero-card {
+        width: 100%;
+      }
+
+      section {
+        padding: 70px 5%;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header>
+
+    <div class="logo">WEBSELLER</div>
+
+    <!-- Hamburger -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      ☰
+    </div>
+
+    <nav id="mobileMenu">
+      <a href="#features">Features</a>
+      <a href="#work">Work</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a class="nav-btn" href="#contact">Start Project</a>
+
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <h1>Build High-Converting Websites for Your Business</h1>
+
+      <p>
+        We design modern SaaS-style websites that help brands get
+        customers, leads, and sales.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Get Started</a>
+        <a href="#work" class="btn btn-outline">View Work</a>
+      </div>
+
+    </div>
+
+
+    <div class="hero-card">
+
+      <h3>⚡ Fast Delivery</h3>
+      <p>Professional websites in days, not weeks.</p>
+
+      <h3>📱 Mobile First</h3>
+      <p>Perfect on all devices.</p>
+
+      <h3>⚡ SEO Ready</h3>
+      <p>Rank better on Google.</p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FEATURES -->
+  <section id="features">
+
+    <h2>What You Get</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        Modern UI Design
+      </div>
+
+      <div class="card">
+        Responsive Layout
+      </div>
+
+      <div class="card">
+        SEO Optimization
+      </div>
+
+      <div class="card">
+        Fast Loading Speed
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- WORK -->
+  <section id="work">
+
+    <h2>Our Work</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        Clothing Store UI
+      </div>
+
+      <div class="card">
+        Barber Booking Site
+      </div>
+
+      <div class="card">
+        Restaurant Menu
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PRICING -->
+  <section id="pricing">
+
+    <h2>Pricing Plans</h2>
+
+    <div class="grid">
+
+      <div class="card">
+
+        <h3>Starter</h3>
+
+        <p class="price">₹999</p>
+
+        <p>Landing page website</p>
+
+      </div>
+
+
+      <div class="card popular">
+
+        <div class="badge">Popular</div>
+
+        <h3>Pro</h3>
+
+        <p class="price">₹2999</p>
+
+        <p>Business website (5 pages)</p>
+
+      </div>
+
+
+      <div class="card">
+
+        <h3>Premium</h3>
+
+        <p class="price">₹4999+</p>
+
+        <p>Full custom SaaS website</p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT -->
+  <section id="contact">
+
+    <h2>Start Your Project</h2>
+
+    <form id="contactForm">
+
+      <input
+        type="text"
+        id="name"
+        placeholder="Your Name"
+        required
+      >
+
+      <input
+        type="text"
+        id="project"
+        placeholder="Project Idea"
+        required
+      >
+
+      <input
+        type="text"
+        id="budget"
+        placeholder="Budget (optional)"
+      >
+
+      <button type="submit">
+        Send via WhatsApp
+      </button>
+
+    </form>
+
+
+    <a
+      class="whatsapp"
+      id="whatsappBtn"
+      target="_blank"
+      href="#"
+    >
+      Chat on WhatsApp
+    </a>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 WEBSELLER — SaaS Web Studio
+  </footer>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    /* MOBILE MENU */
+    function toggleMenu() {
+      document
+        .getElementById("mobileMenu")
+        .classList.toggle("active");
+    }
+
+
+    /* CONTACT FORM */
+    document
+      .getElementById("contactForm")
+      .addEventListener("submit", function(e) {
+
+        e.preventDefault();
+
+        let name =
+          document.getElementById("name").value;
+
+        let project =
+          document.getElementById("project").value;
+
+        let budget =
+          document.getElementById("budget").value;
+
+
+        let msg =
+          `Hi, I'm ${name}. I need a website: ${project}. Budget: ${budget}`;
+
+
+        window.open(
+          "https://wa.me/916309455978?text=" +
+          encodeURIComponent(msg),
+          "_blank"
+        );
+
+      });
+
+
+    /* WHATSAPP BUTTON */
+    document.getElementById("whatsappBtn").href =
+      "https://wa.me/916309455978?text=" +
+      encodeURIComponent(
+        "Hi WEBSELLER, I want a SaaS-style website."
+      );
+
+  </script>
 
 </body>
-</html>
-<script>
-function toggleMenu() {
-  document.getElementById("mobileMenu")
-    .classList.toggle("show");
-}
-</script>
+    </html>
