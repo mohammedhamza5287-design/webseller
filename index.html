@@ -467,7 +467,62 @@
 
   <!-- CONTACT -->
   <section id="contact">
+  <!-- WEBSELLER CREATOR KIT -->
+<section id="creatorkit" class="creator-section">
 
+  <div class="creator-heading">
+    <span class="eyebrow">WEBSELLER · FREE CREATOR TOOL</span>
+
+    <h2>Your Next Video Starts Here.</h2>
+
+    <p>
+      Get fresh content ideas and opening hooks for your
+      next video. Choose your niche and start creating.
+    </p>
+  </div>
+
+  <div class="creator-box">
+
+    <label for="creatorNiche">Your content niche</label>
+
+    <select id="creatorNiche">
+      <option value="gaming">Gaming</option>
+      <option value="technology">Technology</option>
+      <option value="education">Education</option>
+      <option value="business">Business</option>
+      <option value="fitness">Fitness</option>
+      <option value="lifestyle">Lifestyle</option>
+    </select>
+
+    <label for="creatorStyle">Video style</label>
+
+    <select id="creatorStyle">
+      <option value="curiosity">Curiosity</option>
+      <option value="tips">Helpful tips</option>
+      <option value="mistakes">Common mistakes</option>
+    </select>
+
+    <button
+      type="button"
+      class="creator-button"
+      onclick="generateCreatorIdeas()"
+    >
+      Generate Video Ideas ↗
+    </button>
+
+    <div
+      id="creatorResults"
+      class="creator-results"
+      aria-live="polite"
+    ></div>
+
+  </div>
+
+  <p class="creator-note">
+    Free tool · Original templates · No AI API required
+  </p>
+
+</section>
     <h2>Start Your Project</h2>
 
     <form id="contactForm">
