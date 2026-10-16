@@ -45,6 +45,57 @@ body {
 }
 
 .hero-text {
+/* PREMIUM BLUE BRANDING */
+
+.blue-text {
+  background: linear-gradient(90deg, #3984ff, #45d9ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #45d9ff;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.hero-card {
+  border-color: rgba(57, 132, 255, 0.3);
+  background: linear-gradient(
+    145deg,
+    rgba(25, 40, 70, 0.8),
+    #101522 65%
+  );
+  box-shadow: 0 20px 70px rgba(24, 91, 210, 0.12);
+}
+
+.mini-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.mini-feature > span {
+  color: #45d9ff;
+  font-size: 20px;
+}
+
+.mini-feature strong {
+  display: block;
+  font-size: 14px;
+}
+
+.mini-feature p {
+  margin: 3px 0 0;
+  font-size: 12px;
+  color: #a3adc2;
+}
   max-width: 600px;
 }
 
