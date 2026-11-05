@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#080b14">
+  <meta name="description" content="WEBSELLER CreatorKit — free creator tools to discover video ideas, hooks, and inspiration.">
+
+  <title>WEBSELLER | Creator Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080b14;
+      --panel: #101522;
+      --blue: #3984ff;
+      --cyan: #45d9ff;
+      --text: #f8fafc;
+      --muted: #a5afc2;
+      --border: rgba(255,255,255,.09);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at top, #142343 0%, var(--bg) 48%, #05060a 100%);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 8%;
+      background: rgba(8,11,20,.92);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--cyan);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    nav a {
+      color: #cbd5e1;
+      transition: color .2s;
+    }
+
+    nav a:hover {
+      color: var(--cyan);
+    }
+
+    .nav-btn {
+      padding: 10px 16px;
+      border-radius: 9px;
+      background: linear-gradient(120deg, var(--blue), var(--cyan));
+      color: #050814;
+      font-weight: 700;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 0;
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 85px 8%;
+      scroll-margin-top: 75px;
+    }
+
+    .hero {
+      min-height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 45px;
+    }
+
+    .hero-text {
+      flex: 1;
+      max-width: 650px;
+    }
+
+    .blue-text {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(40px, 5.5vw, 66px);
+      line-height: 1.12;
+      letter-spacing: -1.5px;
+      margin-bottom: 22px;
+    }
+
+    .hero-text > p {
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 28px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 10px;
+      background: linear-gradient(120deg, var(--blue), var(--cyan));
+      color: #050814;
+      font-weight: 700;
+      text-align: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(57,132,255,.22);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--cyan);
+      border: 1px solid rgba(69,217,255,.4);
+    }
+
+    .hero-card {
+      flex: 0 1 390px;
+      padding: 28px;
+      border: 1px solid rgba(57,132,255,.3);
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(25,40,70,.8), #101522 70%);
+      box-shadow: 0 20px 70px rgba(24,91,210,.12);
+    }
+
+    .hero-card h2 {
+      font-size: 25px;
+      margin-bottom: 8px;
+    }
+
+    .hero-card > p {
+      color: var(--muted);
+      margin-bottom: 25px;
+    }
+
+    .mini-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .mini-feature > span {
+      color: var(--cyan);
+      font-size: 21px;
+    }
+
+    .mini-feature strong {
+      display: block;
+    }
+
+    .mini-feature p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 18px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid var(--border);
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(69,217,255,.45);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .card-icon {
+      font-size: 25px;
+      margin-bottom: 12px;
+      color: var(--cyan);
+    }
+
+    /* CREATOR KIT */
+
+    .creator-section {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: rgba(10,15,28,.45);
+    }
+
+    .creator-heading {
+      max-width: 680px;
+      margin: 0 auto 32px;
+      text-align: center;
+    }
+
+    .creator-heading h2 {
+      font-size: clamp(32px,5vw,45px);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .creator-heading p {
+      color: var(--muted);
+    }
+
+    .creator-box {
+      max-width: 650px;
+      margin: auto;
+      padding: 28px;
+      border: 1px solid rgba(57,132,255,.28);
+      border-radius: 20px;
+      background: linear-gradient(145deg,#121c30,#0b0f19);
+      box-shadow: 0 20px 65px rgba(24,91,210,.08);
+    }
+
+    .creator-box label {
+      display: block;
+      margin: 16px 0 8px;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .creator-box select {
+      display: block;
+      width: 100%;
+      padding: 13px;
+      border-radius: 10px;
+      border: 1px solid #2a3b59;
+      background: #0b1220;
+      color: white;
+      outline: none;
+    }
+
+    .creator-box select:focus {
+      border-color: var(--cyan);
+    }
+
+    .creator-button {
+      width: 100%;
+      margin-top: 23px;
+      padding: 14px;
+      border: 0;
+      border-radius: 10px;
+      background: linear-gradient(120deg,var(--blue),var(--cyan));
+      color: #050814;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .2s;
+    }
+
+    .creator-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .creator-results {
+      margin-top: 22px;
+    }
+
+    .creator-result {
+      padding: 18px;
+      margin-top: 13px;
+      border: 1px solid rgba(69,217,255,.18);
+      border-radius: 12px;
+      background: rgba(255,255,255,.025);
+    }
+
+    .creator-result h3 {
+      color: var(--cyan);
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .creator-result p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 7px;
+    }
+
+    .creator-result strong {
+      color: #e2e8f0;
+    }
+
+    .creator-note {
+      margin-top: 17px;
+      text-align: center;
+      color: #8491a7;
+      font-size: 12px;
+    }
+
+    /* PRICING */
+
+    .price {
+      color: var(--cyan);
+      font-size: 28px;
+      font-weight: 800;
+      margin: 12px 0;
+    }
+
+    .popular {
+      border-color: var(--blue);
+      box-shadow: 0 0 30px rgba(57,132,255,.07);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: linear-gradient(120deg,var(--blue),var(--cyan));
+      color: #050814;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    /* CONTACT */
+
+    #contact {
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      max-width: 500px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px;
+      border-radius: 9px;
+      border: 1px solid #29364d;
+      background: #0c1220;
+      color: white;
+      font-family: inherit;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: var(--cyan);
+    }
+
+    button[type="submit"] {
+      padding: 14px;
+      border: 0;
+      border-radius: 9px;
+      background: linear-gradient(120deg,var(--blue),var(--cyan));
+      color: #050814;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .whatsapp {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 11px 17px;
+      border: 1px solid rgba(69,217,255,.4);
+      border-radius: 9px;
+      color: var(--cyan);
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 20px;
+      border-top: 1px solid var(--border);
+      color: #8491a7;
+      font-size: 13px;
+    }
+
+    a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        min-height: auto;
+        padding-top: 75px;
+        padding-bottom: 75px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-card {
+        flex: auto;
+        width: 100%;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2,minmax(0,1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 20px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        gap: 18px;
+        padding: 22px;
+        background: #090d18;
+        border-bottom: 1px solid var(--border);
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      .nav-btn {
+        display: none;
+      }
+
+      section {
+        padding: 65px 20px;
+      }
+
+      .hero {
+        padding: 65px 20px;
+        gap: 30px;
+      }
+
+      h1 {
+        font-size: clamp(38px,10vw,52px);
+      }
+
+      .hero-text > p {
+        font-size: 16px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons .btn {
+        width: 100%;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .creator-box {
+        padding: 21px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header>
+    <a class="logo" href="#">WEBSELLER</a>
+
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" onclick="toggleMenu()">
+      ☰
+    </button>
+
+    <nav id="mobileMenu">
+      <a href="#features" onclick="closeMenu()">Features</a>
+      <a href="#creatorkit" onclick="closeMenu()">CreatorKit</a>
+      <a href="#work" onclick="closeMenu()">Tools</a>
+      <a href="#contact" onclick="closeMenu()">Contact</a>
+    </nav>
+
+    <a class="nav-btn" href="#creatorkit">Try CreatorKit</a>
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-text">
+      <span class="eyebrow">WEBSELLER CREATOR STUDIO</span>
+
+      <h1>
+        Turn Your Ideas Into
+        <span class="blue-text">Something Powerful.</span>
+      </h1>
+
+      <p>
+        Discover practical creator tools and digital products
+        designed to help you brainstorm content, work smarter,
+        and bring your ideas to life.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#creatorkit" class="btn">Explore CreatorKit ↗</a>
+        <a href="#features" class="btn btn-outline">Explore Tools</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <span class="eyebrow">YOUR CREATOR TOOLKIT</span>
+
+      <h2>Ideas. Creativity. Growth.</h2>
+      <p>Everything starts with one good idea.</p>
+
+      <div class="mini-feature">
+        <span>✦</span>
+        <div>
+          <strong>Fresh Ideas</strong>
+          <p>Find new directions for your content.</p>
+        </div>
+      </div>
+
+      <div class="mini-feature">
+        <span>⚡</span>
+        <div>
+          <strong>Simple Tools</strong>
+          <p>Make your creative workflow easier.</p>
+        </div>
+      </div>
+
+      <div class="mini-feature">
+        <span>◈</span>
+        <div>
+          <strong>Built for Creators</strong>
+          <p>Practical inspiration for your next project.</p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section id="features">
+    <div class="section-heading">
+      <span class="eyebrow">CREATE SMARTER</span>
+      <h2>Tools for Your Next Big Idea</h2>
+      <p>Simple starting points for planning and creating content.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">✦</div>
+        <h3>Video Ideas</h3>
+        <p>Explore topic prompts to help you decide what to create next.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">⚡</div>
+        <h3>Opening Hooks</h3>
+        <p>Get starter lines designed to capture attention quickly.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">◈</div>
+        <h3>Content Planning</h3>
+        <p>Turn a broad topic into a practical starting point for your next video.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREATOR KIT -->
+
+  <section id="creatorkit" class="creator-section">
+    <div class="creator-heading">
+      <span class="eyebrow">FREE CREATOR TOOL</span>
+      <h2>Your Next Video Starts Here.</h2>
+      <p>Choose your niche and video style to generate content ideas and opening hooks.</p>
+    </div>
+
+    <div class="creator-box">
+      <label for="creatorNiche">Your content niche</label>
+
+      <select id="creatorNiche">
+        <option value="gaming">Gaming</option>
+        <option value="technology">Technology</option>
+        <option value="education">Education</option>
+        <option value="business">Business</option>
+        <option value="fitness">Fitness</option>
+        <option value="lifestyle">Lifestyle</option>
+      </select>
+
+      <label for="creatorStyle">Video style</label>
+
+      <select id="creatorStyle">
+        <option value="curiosity">Curiosity</option>
+        <option value="tips">Helpful tips</option>
+        <option value="mistakes">Common mistakes</option>
+      </select>
+      <label for="ideaCount">How many ideas do you want?</label>
+
+<select id="ideaCount">
+  <option value="3">3 Ideas</option>
+  <option value="5">5 Ideas</option>
+  <option value="10">10 Ideas</option>
+</select>
+
+      <button type="button" class="creator-button" onclick="generateCreatorIdeas()">
+        Generate Video Ideas ↗
+      </button>
+
+      <div id="creatorResults" class="creator-results" aria-live="polite"></div>
+    </div>
+
+    <p class="creator-note">Free tool · Template-based results · No AI API required</p>
+  </section>
+
+  <!-- MORE TOOLS -->
+
+  <section id="work">
+    <div class="section-heading">
+      <span class="eyebrow">THE TOOLBOX</span>
+      <h2>More Creator Tools</h2>
+      <p>These are ideas for future tools. They are not available yet.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="card-icon">▤</div>
+        <h3>Shorts Planner</h3>
+        <p>A future tool for organizing video topics and posting plans.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">✎</div>
+        <h3>Caption Helper</h3>
+        <p>A future tool for drafting captions and calls to action.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">◷</div>
+        <h3>Content Calendar</h3>
+        <p>A future tool for keeping track of content ideas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+    <div class="section-heading">
+      <span class="eyebrow">GET IN TOUCH</span>
+      <h2>Contact WEBSELLER</h2>
+      <p>Have a question or an idea? Send a message.</p>
+    </div>
+
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="text" id="project" placeholder="Your Message or Project Idea" required>
+      <input type="text" id="budget" placeholder="Budget (optional)">
+
+      <button type="submit">Send via WhatsApp</button>
+    </form>
+
+    <a class="whatsapp" id="whatsappBtn" target="_blank" rel="noopener noreferrer" href="#">
+      Chat on WhatsApp
+    </a>
+  </section>
+
+  <footer>
+    © 2026 WEBSELLER · Creator Studio
+  </footer>
+
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById("mobileMenu");
+      const button = document.querySelector(".menu-toggle");
+      const isOpen = menu.classList.toggle("active");
+      button.setAttribute("aria-expanded", String(isOpen));
+    }
+
+    function closeMenu() {
+      const menu = document.getElementById("mobileMenu");
+      const button = document.querySelector(".menu-toggle");
+      menu.classList.remove("active");
+      button.setAttribute("aria-expanded", "false");
+    }
+
+    // Original template-based ideas. No external AI service is used.
+    const creatorIdeas = {
+      gaming: [
+        "A Gaming Setting You Might Be Overlooking",
+        "Can You Improve Without Changing Your Device?",
+        "The Challenge That Tests Your Game Knowledge",
+        "Three Habits That Make Gameplay More Consistent",
+        "How to Review Your Own Gameplay",
+        "Why Copying Another Player's Settings May Not Help",
+        "A Beginner's Guide to Building Game Sense",
+        "What Makes a Gaming Challenge Interesting?",
+        "How to Make a Gaming Video More Engaging",
+        "Five Questions Every New Gamer Should Ask"
+      ],
+      technology: [
+        "A Phone Feature You May Have Missed",
+        "What Happens Behind a Simple Website?",
+        "Can a Free Tool Save You Time?",
+        "Three Ways to Organize Your Digital Workspace",
+        "HTML, CSS and JavaScript Explained Simply",
+        "How to Check a Tool Before Using It",
+        "A Beginner's Guide to Website Design",
+        "Why More Apps Do Not Always Mean More Productivity",
+        "Common Mistakes When Learning to Code",
+        "How to Turn a Small Tech Idea Into a Project"
+      ],
+      education: [
+        "Can You Explain This Topic in 30 Seconds?",
+        "The Question That Makes a Difficult Topic Easier",
+        "What If You Learned One Small Thing Every Day?",
+        "A Simple Way to Break Down a Big Chapter",
+        "How to Make Revision Sessions More Focused",
+        "Three Study Habits Worth Testing",
+        "How to Explain a Difficult Idea With an Example",
+        "What Makes a Good Study Note?",
+        "Common Mistakes When Preparing for Exams",
+        "How to Turn a Lesson Into a Short Video"
+      ],
+      business: [
+        "A Small Problem That Could Become a Business Idea",
+        "What Makes Customers Choose One Service?",
+        "Can You Start With a Simple Digital Product?",
+        "How to Describe Your Offer Clearly",
+        "Three Ways to Validate an Idea Before Building",
+        "What Makes a Useful Landing Page?",
+        "How to Improve a Customer's First Impression",
+        "Common Beginner Mistakes in Online Business",
+        "Why Solving One Specific Problem Matters",
+        "How to Turn Feedback Into a Better Product"
+      ],
+      fitness: [
+        "Why Consistency Matters More Than a Perfect Plan",
+        "Three Beginner-Friendly Movement Habits",
+        "How to Build a Balanced Daily Routine",
+        "What Does Recovery Actually Mean?",
+        "How to Set a Realistic Fitness Goal",
+        "Common Myths About Exercise Explained",
+        "How to Track Progress Beyond the Numbers",
+        "Why Warm-Ups Are Part of a Workout",
+        "How to Make Movement More Enjoyable",
+        "Questions to Ask Before Trying a New Fitness Trend"
+      ],
+      lifestyle: [
+        "A Small Routine That Can Make Your Day Smoother",
+        "How to Organize a Busy Week",
+        "Three Ways to Reduce Everyday Clutter",
+        "What Makes a Morning Routine Practical?",
+        "How to Make Time for a Personal Project",
+        "A Simple Digital Declutter Challenge",
+        "How to Build a Habit That Fits Your Schedule",
+        "Common Productivity Advice That Needs Context",
+        "What I Learned From Trying Something New",
+        "How to Plan a Relaxing, Screen-Free Break"
+      ]
+    };
+
+    const hookStyles = {
+      curiosity: [
+        "Have you ever wondered about this? Let's take a closer look.",
+        "There is more to this than most people expect. Here's why.",
+        "What if the small detail you missed is actually the most important?"
+      ],
+      tips: [
+        "Here are a few practical points you can try and adapt to your needs.",
+        "Let's break it down into simple steps you can use.",
+        "Start with these basics, then find what works best for you."
+      ],
+      mistakes: [
+        "A lot of beginners overlook this. Let's look at what to watch for.",
+        "Before you try that, make sure you are not falling into these common traps.",
+        "These small mistakes can make the process harder than it needs to be."
+      ]
+    };
+
+    function generateCreatorIdeas() {
+      const niche = document.getElementById("creatorNiche").value;
+      const style = document.getElementById("creatorStyle").value;
+      const count = Number(document.getElementById("ideaCount").value);
+      const results = document.getElementById("creatorResults");
+
+      results.replaceChildren();
+
+      if (![3, 5, 10].includes(count)) {
+        results.textContent = "Please choose 3, 5, or 10 ideas.";
+        return;
+      }
+
+      const titles = creatorIdeas[niche];
+      const hooks = hookStyles[style];
+
+      if (!titles || !hooks) {
+        results.textContent = "Sorry, ideas are not available for this selection yet.";
+        return;
+      }
+
+      const heading = document.createElement("p");
+      heading.className = "eyebrow";
+      heading.textContent = `${count} VIDEO IDEAS`;
+      results.appendChild(heading);
+
+      titles.slice(0, count).forEach((title, index) => {
+        const article = document.createElement("article");
+        article.className = "creator-result";
+
+        const titleElement = document.createElement("h3");
+        titleElement.textContent = `${index + 1}. ${title}`;
+
+        const hookElement = document.createElement("p");
+        const label = document.createElement("strong");
+        label.textContent = "Opening hook: ";
+        hookElement.append(label, document.createTextNode(hooks[index % hooks.length]));
+
+        const copyButton = document.createElement("button");
+        copyButton.type = "button";
+        copyButton.className = "btn btn-outline";
+        copyButton.style.marginTop = "12px";
+        copyButton.textContent = "Copy idea";
+
+        copyButton.addEventListener("click", async () => {
+          const copyText = `${title}\nOpening hook: ${hooks[index % hooks.length]}`;
+          try {
+            await navigator.clipboard.writeText(copyText);
+            copyButton.textContent = "Copied! ✓";
+          } catch {
+            hookElement.textContent = copyText;
+            copyButton.textContent = "Select the text to copy";
+          }
+        });
+
+        article.append(titleElement, hookElement, copyButton);
+        results.appendChild(article);
+      });
+
+      results.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    // Contact form opens WhatsApp with the visitor's message.
+    const whatsappNumber = "916309455978";
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const project = document.getElementById("project").value.trim();
+      const budget = document.getElementById("budget").value.trim();
+      const message = `Hi, I'm ${name}. Message/project: ${project}. Budget: ${budget || "Not specified"}`;
+
+      window.open(
+        `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`,
+        "_blank",
+        "noopener,noreferrer"
+      );
+    });
+
+    document.getElementById("whatsappBtn").href =
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Hi WEBSELLER, I have a question.")}`;
+  </script>
+
+</body>
+</html>
